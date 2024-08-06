@@ -2,4 +2,6 @@
 
 # Equipo
 
- Alejo Romero
+Alejo Romero
+
+im racist (soy de racing)
