@@ -1,0 +1,68 @@
+{
+  "perks": [
+    {
+      "id": "Mano_Amiga",
+      "nombre": "Mano Amiga",
+      "descripcion": "dará 1 click por ti cada segundo",
+      "tipo": "CPS",
+      "valor": 20,
+      "icono": "ruta/al/icono.png"
+    },
+    {
+      "id": "Tercer_brazo",
+      "nombre": "Tercer brazo",
+      "descripcion": "tus clicks valen 1 más",
+      "tipo": "CPC",
+      "valor": 10,
+      "icono": "ruta/al/icono2.png"
+    },
+    {
+      "id": "Frente_de_izquierdas",
+      "nombre": "Frente de izquierdas",
+      "descripcion": "Clicks automáticos se reducen 10% por 25 segundos",
+      "tipo": "MCPS",
+      "valor": 2000,
+      "icono": "ruta/al/icono2.png"
+    },
+    {
+      "id": "Movimiento_anti_Darwin",
+      "nombre": "Movimiento anti Darwin",
+      "descripcion": "licks manuales se reducen 15% por 25 segundos",
+      "tipo": "MCPC",
+      "valor": 2000,
+      "icono": "ruta/al/icono2.png"
+    },
+    {
+      "id": "Torre_de_Babel",
+      "nombre": "Torre de babel",
+      "descripcion": "no sabe cuanto vale ninguna perk por 25 segundos",
+      "tipo": "PM",
+      "valor": 5000,
+      "icono": "ruta/al/icono2.png"
+    },
+    {
+      "id": "Movimiento_dictatorial",
+      "nombre": "Movimiento dictatorial",
+      "descripcion": "gana un 75% menos de clics automáticos por 25 segundos",
+      "tipo": "SMCPS",
+      "valor": 2050000,
+      "icono": "ruta/al/icono2.png"
+    },
+    {
+      "id": "Nudo_imposible",
+      "nombre": "Nudo imposible",
+      "descripcion": "reducir en un 75% sus clics manuales por 25 segundos",
+      "tipo": "SMCPC",
+      "valor": 2050000,
+      "icono": "ruta/al/icono2.png"
+    },
+    {
+      "id": "Operación_distracción",
+      "nombre": "Operación distracción",
+      "descripcion": "crea ventanas de publicidad emergentes en el enemigo que elijas que lo molestaran y no lo dejaran tocar el botón principal por 10 segundos",
+      "tipo": "SPM",
+      "valor": 1050000,
+      "icono": "ruta/al/icono2.png"
+    }
+  ]
+
