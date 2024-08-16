@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g2qfavotwd1v"]
+
+[ext_resource type="Script" path="res://ClickerEsoteric/node_3d.gd" id="1_vpkp2"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_vpkp2")
