@@ -4,10 +4,12 @@
 
 * Tener instalado [Git](https://git-scm.com/downloads)
 * Tener instalado [Godot 4.2.2](https://godotengine.org/download/archive/4.2.2-stable/)
+* Tener instalado [FBX2glTF](https://godotengine.org/fbx-import/)
 
 ## Tecnologías
 
 * La totalidad del proyecto se realizará en **GdScript**
+* Se utiliza FBX2glTF para compatibilidad FBX
 * Si se usa alguna librería externa, se agregará en este apartado
 
 ## Pautas de programación a usar
