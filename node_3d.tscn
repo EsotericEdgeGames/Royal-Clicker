@@ -18,4 +18,10 @@ offset_top = 270.0
 offset_right = 672.0
 offset_bottom = 409.0
 
+[node name="SistemaDePerks" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="Control/Button" to="." method="boton_presionado"]
