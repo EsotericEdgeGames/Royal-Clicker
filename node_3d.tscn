@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://g2qfavotwd1v"]
+[gd_scene load_steps=3 format=3 uid="uid://g2qfavotwd1v"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_n38l5"]
+[ext_resource type="Script" path="res://LABEL.gd" id="2_pe3nk"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_n38l5")
@@ -17,5 +18,43 @@ offset_left = 461.0
 offset_top = 270.0
 offset_right = 672.0
 offset_bottom = 409.0
+
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_pe3nk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Control"]
+layout_mode = 0
+offset_left = 998.0
+offset_top = 1.0
+offset_right = 1038.0
+offset_bottom = 41.0
+
+[node name="Labelcpc" type="Label" parent="Control/Control/HBoxContainer"]
+layout_mode = 2
+text = "CPC:"
+
+[node name="numeros" type="Label" parent="Control/Control/HBoxContainer"]
+layout_mode = 2
+text = "0
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Control"]
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 40.0
+offset_right = 1048.0
+offset_bottom = 80.0
+
+[node name="Labelcps" type="Label" parent="Control/Control/HBoxContainer2"]
+layout_mode = 2
+text = "CPS:"
+
+[node name="numeros" type="Label" parent="Control/Control/HBoxContainer2"]
+layout_mode = 2
+text = "0
+"
 
 [connection signal="pressed" from="Control/Button" to="." method="boton_presionado"]
