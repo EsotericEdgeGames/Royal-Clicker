@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://g2qfavotwd1v"]
+[gd_scene load_steps=3 format=3 uid="uid://g2qfavotwd1v"]
 
 [ext_resource type="Script" path="res://node_3d.gd" id="1_n38l5"]
+[ext_resource type="Script" path="res://SistemaDePerks.gd" id="2_gnojb"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_n38l5")
@@ -23,5 +24,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_gnojb")
 
 [connection signal="pressed" from="Control/Button" to="." method="boton_presionado"]
