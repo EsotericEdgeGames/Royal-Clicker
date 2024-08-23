@@ -26,7 +26,7 @@ func load_perks():
 		var parse_result = json_instance.parse(file_text)  # Intenta analizar el texto del JSON
 		
 		if parse_result == OK:  # Verifica si el análisis fue exitoso
-			var result = parse_result.result
+			var result = json_instance.get_data()  # Obtiene los datos analizados del objeto JSON
 			if typeof(result) == TYPE_ARRAY:  # Verifica si el resultado es un arreglo
 				perks_data = result  # Asigna los datos de perks
 				if not perks_data:  # Verifica si no se encontraron datos
@@ -46,26 +46,29 @@ func load_perks():
 func create_perk_buttons():
 	clear_perks()  # Limpia los botones y etiquetas existentes antes de crear nuevos
 	print("Creando botones de perks...")  # Mensaje para indicar que se están creando los botones
+
+	var vbox = VBoxContainer.new()  # Crea un VBoxContainer para organizar los botones y etiquetas verticalmente
+	add_child(vbox)  # Añade el VBoxContainer al Control principal
+
 	for perk in perks_data:
+		var hbox = HBoxContainer.new()  # Crea un HBoxContainer para organizar cada par de botón y etiqueta horizontalmente
+		vbox.add_child(hbox)  # Añade el HBoxContainer al VBoxContainer
+
 		var button = Button.new()  # Crea un nuevo botón
 		var label = Label.new()  # Crea una nueva etiqueta
 
 		# Configura el botón
 		button.text = "Cost: $" + str(perk["cost"])  # Establece el texto del botón con el costo del perk
+		button.custom_minimum_size = Vector2(150, 30)  # Establece el tamaño mínimo del botón
 		button.connect("pressed", Callable(self, "_on_perk_button_pressed").bind(perk["id"]))  # Conecta la señal "pressed" del botón al método _on_perk_button_pressed
 
 		# Configura la etiqueta
 		label.text = perk["name"] + "\n" + perk["description"]  # Establece el texto de la etiqueta con el nombre y la descripción del perk
+		label.custom_minimum_size = Vector2(200, 60)  # Establece el tamaño mínimo de la etiqueta
 
-		# Añade el botón y la etiqueta al Control
-		add_child(button)
-		add_child(label)
-		
-		# Posiciona el botón y la etiqueta en la pantalla
-		button.rect_min_size = Vector2(150, 30)  # Establece el tamaño mínimo del botón
-		label.rect_min_size = Vector2(200, 60)  # Establece el tamaño mínimo de la etiqueta
-		button.rect_position = Vector2(10, 10 + perks_data.find(perk) * 40)  # Posiciona el botón
-		label.rect_position = Vector2(170, 10 + perks_data.find(perk) * 40)  # Posiciona la etiqueta
+		# Añade el botón y la etiqueta al HBoxContainer
+		hbox.add_child(button)
+		hbox.add_child(label)
 
 # Este método se llama cuando se presiona un botón de perk y muestra los detalles del perk.
 func _on_perk_button_pressed(perk_id):
@@ -81,6 +84,6 @@ func _on_perk_button_pressed(perk_id):
 # Esta función elimina todos los botones y etiquetas del Control.
 func clear_perks():
 	for child in get_children():  # Itera sobre todos los hijos del Control
-		if child is Button or child is Label:  # Verifica si el hijo es un botón o una etiqueta
+		if child is VBoxContainer:  # Verifica si el hijo es un VBoxContainer
 			remove_child(child)  # Elimina el hijo del Control
 			child.queue_free()  # Marca el hijo para su liberación de memoria
