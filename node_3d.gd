@@ -1,6 +1,7 @@
 extends Node3D
 
 
+
 var clicks = 0 
 var cps = 0.25 
 var segs2 = 0 
@@ -18,3 +19,7 @@ func _process(delta):
 # Función que se ejecuta cuando se hace click en el botón.
 func boton_presionado():
 	clicks += cpc
+
+
+func _on_menu_pressed():
+	get_tree(). change_scene_to_file("res://menù.tscn")

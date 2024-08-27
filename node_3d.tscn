@@ -7,15 +7,27 @@ script = ExtResource("1_n38l5")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Clicker" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 461.0
 offset_top = 270.0
 offset_right = 672.0
 offset_bottom = 409.0
 
-[connection signal="pressed" from="Control/Button" to="." method="boton_presionado"]
+[node name="Menu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 535.0
+offset_right = 169.0
+offset_bottom = 604.0
+theme_override_font_sizes/font_size = 25
+text = "Menu"
+
+[connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
+[connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
