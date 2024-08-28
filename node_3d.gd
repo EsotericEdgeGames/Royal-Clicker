@@ -12,11 +12,8 @@ func _process(delta):
 	if segs>segs2:
 		clicks += cps 
 		segs += 0.25 
-		print(clicks)
 
 
-func _on_button_button_down():
+func _boton_presionado():
 		clicks += cpc
-		print(clicks)	
-		
-	
+		print(clicks)
