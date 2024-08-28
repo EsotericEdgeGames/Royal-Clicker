@@ -7,9 +7,9 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00857789, 0.00123735, 0)
 script = ExtResource("1_n38l5")
 
-[node name="Escena Principal" parent="." instance=ExtResource("2_8yvtq")]
+[node name="Root Scene" parent="." instance=ExtResource("2_8yvtq")]
 
-[node name="Boton" type="Button" parent="Escena Principal"]
+[node name="Boton" type="Button" parent="Root Scene"]
 clip_contents = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,8 +27,8 @@ keep_pressed_outside = true
 text = "Click aqui"
 flat = true
 
-[node name="Camara3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.055843, 0)
 fov = 49.0
 
-[connection signal="button_down" from="Escena Principal/Boton" to="." method="_boton_presionado"]
+[connection signal="button_down" from="Root Scene/Boton" to="." method="boton_presionado"]
