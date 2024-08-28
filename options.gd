@@ -1,8 +1,5 @@
 extends Control
 
 
-
-
-func _on_menù_pressed():
+func menù_presionado():
 	get_tree(). change_scene_to_file("res://menù.tscn")
- 

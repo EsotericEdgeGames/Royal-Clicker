@@ -34,3 +34,4 @@ theme_override_font_sizes/font_size = 50
 text = "Aca tendrian que estar los creditos"
 
 [connection signal="pressed" from="VBoxContainer/Menù" to="." method="_on_menù_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menù" to="." method="menù_presionado"]

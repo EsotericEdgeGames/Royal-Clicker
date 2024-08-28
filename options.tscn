@@ -44,3 +44,4 @@ text = "Menù
 "
 
 [connection signal="pressed" from="VBoxContainer2/Menù" to="." method="_on_menù_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Menù" to="." method="menù_presionado"]
