@@ -1,89 +1,99 @@
 extends Control
 
-var perks_data = []
+var perks_data = []  # Almacena los datos de perks cargados desde el archivo JSON
 
-# Esta función se llama cuando el nodo está listo para ser usado.
+# Se llama cuando el nodo está listo para ser usado.
 func _ready():
-	print("Se inicializó script")  # Mensaje para verificar que el script ha sido inicializado
+	print("Se inicializó script")
 	load_perks()  # Carga los datos de perks desde el archivo JSON
-	if perks_data.size() > 0:  # Verifica si los datos de perks fueron cargados correctamente
-		create_perk_buttons()  # Crea los botones de perks basados en los datos cargados
+	if perks_data.size() > 0:  # Verifica si los datos se cargaron correctamente
+		create_perk_buttons()  # Crea los botones de perks en la interfaz
 	else:
-		print("Perks data is empty or not loaded")  # Mensaje en caso de que los datos estén vacíos o no se hayan cargado
+		print("Perks data is empty or not loaded")
 
-# Esta función carga los datos de perks desde un archivo JSON.
+# Carga los datos de perks desde un archivo JSON.
 func load_perks():
-	print("Cargando script")  # Mensaje para indicar que se está cargando el archivo
+	print("Cargando script")
 	var file_path = "res://PerksJSON/PerksJSON.JSON"  # Ruta del archivo JSON
-	
-	# Intenta abrir el archivo JSON para lectura
+
+	# Intenta abrir el archivo para lectura.
 	var file = FileAccess.open(file_path, FileAccess.READ)
-	if file:
-		var file_text = file.get_as_text()  # Obtiene el contenido del archivo como texto
-		print("Contenido del archivo JSON: ", file_text)  # Muestra el contenido del archivo para verificación
+	if not file:
+		print("Error al abrir el archivo: ", file_path)
+		return
 
-		var json_instance = JSON.new()  # Crea una instancia del parser JSON
-		var parse_result = json_instance.parse(file_text)  # Intenta analizar el texto del JSON
-		
-		if parse_result == OK:  # Verifica si el análisis fue exitoso
-			var result = json_instance.get_data()  # Obtiene los datos analizados del objeto JSON
-			if typeof(result) == TYPE_ARRAY:  # Verifica si el resultado es un arreglo
-				perks_data = result  # Asigna los datos de perks
-				if not perks_data:  # Verifica si no se encontraron datos
-					print("No se encontraron datos de perks")
-				else:
-					print("Datos de perks cargados: ", perks_data)  # Muestra los datos cargados
-			else:
-				print("El JSON no es una lista válida")  # Mensaje si el JSON no es un arreglo
-		else:
-			print("Error al analizar JSON: ", json_instance.get_error_message())  # Mensaje de error si el análisis falla
-		
-		file.close()  # Cierra el archivo después de la lectura
+	var file_text = file.get_as_text()  # Lee el contenido del archivo como texto
+	print("Contenido del archivo JSON: ", file_text)
+
+	var json_instance = JSON.new()  # Crea una instancia del parser JSON
+	var parse_result = json_instance.parse(file_text)  # Intenta analizar el JSON
+
+	# Verifica si hubo un error al analizar el JSON
+	if parse_result != OK:
+		print("Error al analizar JSON: ", json_instance.get_error_message())
+		file.close()
+		return
+
+	# Valida y asigna los datos del JSON a perks_data
+	perks_data = validate_perks_data(json_instance.get_data())
+	if not perks_data:
+		print("No se encontraron datos de perks o el JSON no es válido")
 	else:
-		print("Error al abrir el archivo: ", file_path)  # Mensaje de error si el archivo no se puede abrir
+		print("Datos de perks cargados: ", perks_data)
 
-# Esta función crea botones y etiquetas para cada perk basado en los datos cargados.
+	file.close()  # Cierra el archivo después de la lectura
+
+# Verifica si los datos JSON son válidos (deben ser un array no vacío).
+func validate_perks_data(data):
+	if typeof(data) == TYPE_ARRAY and data.size() > 0:
+		return data  # Retorna los datos si son válidos
+	return []  # Retorna un array vacío si los datos no son válidos
+
+# Crea botones y etiquetas para cada perk basado en los datos cargados.
 func create_perk_buttons():
-	clear_perks()  # Limpia los botones y etiquetas existentes antes de crear nuevos
-	print("Creando botones de perks...")  # Mensaje para indicar que se están creando los botones
+	clear_perks()  # Limpia cualquier botón y etiqueta existente
+	print("Creando botones de perks...")
 
-	var vbox = VBoxContainer.new()  # Crea un VBoxContainer para organizar los botones y etiquetas verticalmente
-	add_child(vbox)  # Añade el VBoxContainer al Control principal
+	var vbox = VBoxContainer.new()  # Crea un contenedor vertical para organizar los elementos
+	add_child(vbox)
 
+	# Itera sobre cada perk en los datos cargados
 	for perk in perks_data:
-		var hbox = HBoxContainer.new()  # Crea un HBoxContainer para organizar cada par de botón y etiqueta horizontalmente
-		vbox.add_child(hbox)  # Añade el HBoxContainer al VBoxContainer
+		var hbox = HBoxContainer.new()  # Crea un contenedor horizontal para el botón y la etiqueta
+		vbox.add_child(hbox)
 
 		var button = Button.new()  # Crea un nuevo botón
 		var label = Label.new()  # Crea una nueva etiqueta
 
-		# Configura el botón
-		button.text = "Cost: $" + str(perk["cost"])  # Establece el texto del botón con el costo del perk
-		button.custom_minimum_size = Vector2(150, 30)  # Establece el tamaño mínimo del botón
-		button.connect("pressed", Callable(self, "_on_perk_button_pressed").bind(perk["id"]))  # Conecta la señal "pressed" del botón al método _on_perk_button_pressed
+		# Configura el botón con el costo del perk
+		button.text = "Cost: $" + str(perk["cost"])
+		button.custom_minimum_size = Vector2(150, 30)
+		button.connect("pressed", Callable(self, "_on_perk_button_pressed").bind(perk["id"]))
 
-		# Configura la etiqueta
-		label.text = perk["name"] + "\n" + perk["description"]  # Establece el texto de la etiqueta con el nombre y la descripción del perk
-		label.custom_minimum_size = Vector2(200, 60)  # Establece el tamaño mínimo de la etiqueta
+		# Configura la etiqueta con el nombre y la descripción del perk
+		label.text = perk["name"] + "\n" + perk["description"]
+		label.custom_minimum_size = Vector2(200, 60)
 
-		# Añade el botón y la etiqueta al HBoxContainer
+		# Añade el botón y la etiqueta al contenedor horizontal
 		hbox.add_child(button)
 		hbox.add_child(label)
 
-# Este método se llama cuando se presiona un botón de perk y muestra los detalles del perk.
+# Muestra los detalles del perk cuando se presiona un botón.
 func _on_perk_button_pressed(perk_id):
+	# Busca y muestra la información del perk cuyo ID coincide con el del botón presionado
 	for perk in perks_data:
-		if perk["id"] == perk_id:  # Verifica si el ID del perk coincide con el ID del botón presionado
-			print("ID: ", perk["id"])  # Muestra el ID del perk
-			print("Nombre: ", perk["name"])  # Muestra el nombre del perk
-			print("Descripción: ", perk["description"])  # Muestra la descripción del perk
-			print("Costo: $", perk["cost"])  # Muestra el costo del perk
-			print("Tipo: ", perk["type"])  # Muestra el tipo del perk
+		if perk["id"] == perk_id:
+			print("ID: ", perk["id"])
+			print("Nombre: ", perk["name"])
+			print("Descripción: ", perk["description"])
+			print("Costo: $", perk["cost"])
+			print("Tipo: ", perk["type"])
 			break
 
-# Esta función elimina todos los botones y etiquetas del Control.
+# Elimina todos los botones y etiquetas del Control.
 func clear_perks():
-	for child in get_children():  # Itera sobre todos los hijos del Control
-		if child is VBoxContainer:  # Verifica si el hijo es un VBoxContainer
-			remove_child(child)  # Elimina el hijo del Control
-			child.queue_free()  # Marca el hijo para su liberación de memoria
+	# Itera sobre todos los hijos del nodo actual y elimina los contenedores VBox
+	for child in get_children():
+		if child is VBoxContainer:
+			remove_child(child)
+			child.queue_free()  # Libera la memoria del contenedor eliminado
