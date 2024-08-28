@@ -9,7 +9,7 @@ script = ExtResource("1_n38l5")
 
 [node name="Root Scene" parent="." instance=ExtResource("2_8yvtq")]
 
-[node name="Button" type="Button" parent="Root Scene"]
+[node name="Boton" type="Button" parent="Root Scene"]
 clip_contents = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,4 +31,4 @@ flat = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.055843, 0)
 fov = 49.0
 
-[connection signal="button_down" from="Root Scene/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Root Scene/Boton" to="." method="_on_button_button_down"]
