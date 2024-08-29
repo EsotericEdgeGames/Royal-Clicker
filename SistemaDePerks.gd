@@ -8,8 +8,6 @@ func _ready():
 	load_perks()  # Carga los datos de perks desde el archivo JSON
 	if perks_data.size() > 0:  # Verifica si los datos se cargaron correctamente
 		create_perk_buttons()  # Crea los botones de perks en la interfaz
-	else:
-		print("Perks data is empty or not loaded")
 
 # Carga los datos de perks desde un archivo JSON.
 func load_perks():
@@ -36,12 +34,6 @@ func load_perks():
 
 	# Valida y asigna los datos del JSON a perks_data
 	perks_data = validate_perks_data(json_instance.get_data())
-	if not perks_data:
-		print("No se encontraron datos de perks o el JSON no es válido")
-	else:
-		print("Datos de perks cargados: ", perks_data)
-
-	file.close()  # Cierra el archivo después de la lectura
 
 # Verifica si los datos JSON son válidos (deben ser un array no vacío).
 func validate_perks_data(data):
