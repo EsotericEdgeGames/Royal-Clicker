@@ -3,6 +3,39 @@
 [ext_resource type="Script" path="res://node_3d.gd" id="1_n38l5"]
 [ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_8yvtq"]
 
+
+[node name="Gameplay" type="Node3D"]
+script = ExtResource("1_n38l5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clicker" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 270.0
+offset_right = 672.0
+offset_bottom = 409.0
+
+[node name="Menu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 535.0
+offset_right = 169.0
+offset_bottom = 604.0
+theme_override_font_sizes/font_size = 25
+text = "Menu"
+
+[connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
+[connection signal="pressed" from="Control/Clicker" to="." method="clicker_presionado"]
+[connection signal="pressed" from="Control/Menu" to="." method="menu_presionado"]
+[connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00857789, 0.00123735, 0)
 script = ExtResource("1_n38l5")
@@ -32,3 +65,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0
 fov = 49.0
 
 [connection signal="button_down" from="Escena Principal/Boton" to="." method="_boton_presionado"]
+

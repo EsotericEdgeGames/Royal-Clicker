@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://jaijlswktv0r"]
+
+[ext_resource type="Script" path="res://Menù.gd" id="1_2sg0h"]
+
+[node name="Menù" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2sg0h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.723
+anchor_right = 0.5
+anchor_bottom = 0.723
+offset_left = -177.0
+offset_top = -166.504
+offset_right = 178.0
+offset_bottom = 166.496
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Practice" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Practice"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Options"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Credits"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.282
+anchor_right = 0.5
+anchor_bottom = 0.282
+offset_left = -195.0
+offset_top = -53.736
+offset_right = 203.0
+offset_bottom = 53.264
+theme_override_font_sizes/font_size = 60
+text = "Royal Clicker"
+editable = false
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="play_presionado"]
+[connection signal="pressed" from="VBoxContainer/Practice" to="." method="_on_practice_pressed"]
+[connection signal="pressed" from="VBoxContainer/Practice" to="." method="practice_presionado"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="options_presionado"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="credits_presionado"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="quit_pressionado"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
