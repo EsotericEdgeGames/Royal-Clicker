@@ -13,7 +13,7 @@ func _process(delta):
 	if segs>segs2:
 		clicks += cps 
 		segs += 0.25 
-		print(clicks)
+
 
 
 # Función que se ejecuta cuando se hace click en el botón.
@@ -23,3 +23,8 @@ func boton_presionado():
 
 func menu_presionado():
 	get_tree(). change_scene_to_file("res://menù.tscn")
+
+func _boton_presionado():
+		clicks += cpc
+		print(clicks)
+
