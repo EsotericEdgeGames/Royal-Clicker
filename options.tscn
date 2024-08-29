@@ -43,5 +43,5 @@ theme_override_font_sizes/font_size = 20
 text = "Menù
 "
 
-[connection signal="pressed" from="VBoxContainer2/Menù" to="." method="_on_menù_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Menù" to="." method="menù_presionado"]
+[connection signal="pressed" from="VBoxContainer2/Menù" to="." method="_on_menù_pressed"]

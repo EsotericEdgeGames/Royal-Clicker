@@ -31,5 +31,5 @@ text = "Menu"
 
 [connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="pressed" from="Control/Clicker" to="." method="clicker_presionado"]
-[connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="Control/Menu" to="." method="menu_presionado"]
+[connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
