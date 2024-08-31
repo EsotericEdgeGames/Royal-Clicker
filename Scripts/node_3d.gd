@@ -22,7 +22,7 @@ func boton_presionado():
 
 
 func menu_presionado():
-	get_tree(). change_scene_to_file("res://menù.tscn")
+	get_tree(). change_scene_to_file("res://Escenas/menù.tscn")
 
 func _boton_presionado():
 		clicks += cpc
