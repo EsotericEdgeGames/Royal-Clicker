@@ -11,6 +11,11 @@ config_version=5
 [application]
 
 config/name="Royal Clicker"
-run/main_scene="res://menù.tscn"
+run/main_scene="res://Escenas/menù.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

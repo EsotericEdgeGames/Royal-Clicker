@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0ury7hyadql3"]
 
-[ext_resource type="Script" path="res://ServerList.gd" id="1_1ku46"]
+[ext_resource type="Script" path="res://Scripts/ServerList.gd" id="1_1ku46"]
 
 [node name="Serverlist" type="Control"]
 layout_mode = 3
