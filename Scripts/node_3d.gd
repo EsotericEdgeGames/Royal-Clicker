@@ -28,3 +28,4 @@ func _boton_presionado():
 		clicks += cpc
 		print(clicks)
 
+
