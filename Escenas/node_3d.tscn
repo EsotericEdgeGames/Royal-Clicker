@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_o1tpa"]
 [ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
-[ext_resource type="Script" path="res://SistemaDePerks.gd" id="2_gnojb"]
-
 
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_o1tpa")
@@ -57,13 +55,6 @@ text = "Menu"
 [node name="Camara3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.055843, 0)
 fov = 49.0
-
-[node name="SistemaDePerks" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_gnojb")
 
 [connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="pressed" from="Control/Clicker" to="." method="clicker_presionado"]
