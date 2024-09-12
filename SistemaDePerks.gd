@@ -94,3 +94,24 @@ func clear_perks():
 		if child is VBoxContainer:
 			remove_child(child)
 			child.queue_free()  # Libera la memoria del contenedor eliminado
+			
+# Función para agregar perks a los arrays correspondientes
+# Listas para almacenar los perks clasificados
+var perks_buenas = []
+var perks_malas = []
+var type_en_perk = []
+
+# Función para agregar un perk a la lista correspondiente
+func agregar_perk(perk):
+	# Verificamos si el perk tiene el campo 'type' y lo clasificamos
+	if perk.has("type"):
+		var type_en_perk = perk["type"]
+	if type_en_perk in ["CPS", "CPC"]:
+		perks_buenas.append(perk)
+	elif type_en_perk in ["MCPS", "MCPC", "PM"]:
+		perks_malas.append(perk)
+
+# Ejemplo de perks con un tipo específico
+var perk1 = {"id": "1_Mano_Amiga", "name": "Mano Amiga", "description": "Dará 1 click por ti cada segundo", "type": "CPS", "cost": 20, "icono": "ruta/al/icono.png"}
+var perk2 = {"id": "4_Movimiento_anti_Darwin", "name": "Movimiento anti Darwin", "description": "Clicks manuales se reducen 15% por 25 segundos", "type": "MCPC", "cost": 2000, "icono": "ruta/al/icono2.png"}
+
