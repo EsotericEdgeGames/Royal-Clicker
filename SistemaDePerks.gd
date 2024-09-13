@@ -95,23 +95,25 @@ func clear_perks():
 			remove_child(child)
 			child.queue_free()  # Libera la memoria del contenedor eliminado
 			
-# Función para agregar perks a los arrays correspondientes
-# Listas para almacenar los perks clasificados
-var perks_buenas = []
-var perks_malas = []
-var type_en_perk = []
+
+
+var perks_positivas = [] #variable tipo array que almacena las perks positivas
+var perks_negativas = [] #variable tipo array que almacena las perks negativas
+var type_perk = [] #Varible para leer el valor "type" y en base a eso gaurdarla si es negativa o positiva
 
 # Función para agregar un perk a la lista correspondiente
 func agregar_perk(perk):
 	# Verificamos si el perk tiene el campo 'type' y lo clasificamos
 	if perk.has("type"):
 		var type_en_perk = perk["type"]
-	if type_en_perk in ["CPS", "CPC"]:
-		perks_buenas.append(perk)
-	elif type_en_perk in ["MCPS", "MCPC", "PM"]:
-		perks_malas.append(perk)
+	if type_perk in ["CPS", "CPC"]:
+		perks_positivas.append(perk)
+	elif type_perk in ["MCPS", "MCPC", "PM"]:
+		perks_negativas.append(perk)
 
-# Ejemplo de perks con un tipo específico
-var perk1 = {"id": "1_Mano_Amiga", "name": "Mano Amiga", "description": "Dará 1 click por ti cada segundo", "type": "CPS", "cost": 20, "icono": "ruta/al/icono.png"}
-var perk2 = {"id": "4_Movimiento_anti_Darwin", "name": "Movimiento anti Darwin", "description": "Clicks manuales se reducen 15% por 25 segundos", "type": "MCPC", "cost": 2000, "icono": "ruta/al/icono2.png"}
+# Carga todas las perks y las clasifica
+func clasificar_perks():
+	var todas_las_perks = load_perks()  
+	for perk in todas_las_perks:
+		agregar_perk(perk)
 
