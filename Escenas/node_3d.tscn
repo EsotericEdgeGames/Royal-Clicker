@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g2qfavotwd1v"]
+[gd_scene load_steps=4 format=3 uid="uid://g2qfavotwd1v"]
 
 [ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_o1tpa"]
-[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
 [ext_resource type="Script" path="res://SistemaDePerks.gd" id="2_gnojb"]
-
+[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
 
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_o1tpa")
@@ -19,8 +18,8 @@ grow_vertical = 2
 [node name="Clicker" type="Button" parent="Control"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 461.0
-offset_top = 270.0
+offset_left = 457.0
+offset_top = 267.0
 offset_right = 672.0
 offset_bottom = 409.0
 
@@ -32,10 +31,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.5
-offset_top = -127.5
-offset_right = 124.5
-offset_bottom = 96.5
+offset_left = -111.5
+offset_top = -111.0
+offset_right = 116.5
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -65,8 +64,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_gnojb")
 
-[connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="pressed" from="Control/Clicker" to="." method="clicker_presionado"]
+[connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="button_down" from="Control/Clicker/Boton" to="." method="_boton_presionado"]
-[connection signal="pressed" from="Control/Menu" to="." method="menu_presionado"]
 [connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/Menu" to="." method="menu_presionado"]
