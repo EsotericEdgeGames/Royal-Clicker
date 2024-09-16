@@ -46,8 +46,14 @@ func create_perk_buttons():
 	clear_perks()  # Limpia cualquier botón y etiqueta existente
 	print("Creando botones de perks...")
 
+	# Crear un contenedor de desplazamiento
+	var scroll = ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(300, 400)  # Define un tamaño mínimo para el área de desplazamiento
+	add_child(scroll)  # Añade el contenedor de desplazamiento al nodo principal
+
 	var vbox = VBoxContainer.new()  # Crea un contenedor vertical para organizar los elementos
-	add_child(vbox)
+	vbox.custom_minimum_size = Vector2(300, 400)  # Asegura que el VBox tenga un tamaño mínimo adecuado
+	scroll.add_child(vbox)  # Añade el VBox al contenedor de desplazamiento
 
 	# Itera sobre cada perk en los datos cargados
 	for perk in perks_data:
@@ -69,8 +75,7 @@ func create_perk_buttons():
 		# Añade el botón y la etiqueta al contenedor horizontal
 		hbox.add_child(button)
 		hbox.add_child(label)
-
-# Muestra los detalles del perk cuando se presiona un botón.
+		
 func _on_perk_button_pressed(perk_id):
 	# Busca y muestra la información del perk cuyo ID coincide con el del botón presionado
 	for perk in perks_data:

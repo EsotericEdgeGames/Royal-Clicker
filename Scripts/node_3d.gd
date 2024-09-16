@@ -10,6 +10,9 @@ var tiempo_actual: float = 0.0  # Tiempo acumulado para controlar el cooldown
 
 @onready var boton = $Control/Clicker/Boton  # Refiere al nodo del botón
 
+func _ready():
+	boton.pressed.connect(boton_presionado)  # Conectar el botón al evento de presionado
+
 
 func _physics_process(delta):
 	frame += delta
@@ -17,16 +20,17 @@ func _physics_process(delta):
 		clicks+=cps
 		frame = 0
 		print(clicks) 
-	if boton.disabled:
-		tiempo_actual += delta  # Acumular el tiempo transcurrido
+	control_de_cooldown(delta)
+
+func control_de_cooldown(delta):
+		if boton.disabled:
+			tiempo_actual += delta  # Acumular el tiempo transcurrido
 		if tiempo_actual >= cooldown:  # Si pasa el tiempo del cooldown
 			boton.disabled = false  # Activar el botón visualmente
 			tiempo_actual = 0.0  # Reiniciar el tiempo acumulado
 
-func _ready():
-	boton.pressed.connect(boton_presionado)  # Conectar el botón al evento de presionado
 
-# Función que se ejecuta cada vez que se hace click en el botón
+# Función que se ejecuta cuando se hace click en el botón.
 func boton_presionado():
 	if not boton.disabled:  # Solo se puede presionar si el botón está habilitado
 		clicks += cpc
