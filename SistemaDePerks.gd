@@ -100,17 +100,15 @@ func clear_perks():
 var perks_positivas = [] #variable tipo array que almacena las perks positivas
 var perks_negativas = [] #variable tipo array que almacena las perks negativas
 
-# Función para agregar un perk a la lista correspondiente
-func agregar_perk(perk):
-	# Verificamos si el perk tiene el campo 'type' y lo clasificamos
-	if perk.has("type"):
-		var type_en_perk = perk["type"]
-	if perk["type"] in ["CPS", "CPC"]:
-		perks_positivas.append(perk)
-	elif perk["type"] in ["MCPS", "MCPC", "PM"]:
-		perks_negativas.append(perk)
 
-# Carga todas las perks y las clasifica
+func agregar_perk(perk):
+
+	if perk.has("type"):
+		if perk["type"] in ["CPS", "CPC"]:
+			perks_positivas.append(perk)
+		elif perk["type"] in ["MCPS", "MCPC", "PM"]:
+			perks_negativas.append(perk)
+
 func clasificar_perks():
 	var todas_las_perks = load_perks()  
 	for perk in todas_las_perks:
