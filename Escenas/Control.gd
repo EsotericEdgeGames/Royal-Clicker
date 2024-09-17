@@ -7,7 +7,16 @@ extends Control
 
 var CPS : int = 0
 var CPC : int = 0
+var time_accumulator: float = 0.0
 
+func _ready() -> void:
+	set_process(true)
+
+func _process(delta: float) -> void:
+	time_accumulator += delta
+	if time_accumulator >= 1.0:  # 1 segundo ha pasado
+		create_CPS_label()
+		time_accumulator = 0.0
 
 func create_CPS_label() -> void:
 	CPS += 1
