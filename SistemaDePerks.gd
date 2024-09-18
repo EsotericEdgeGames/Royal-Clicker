@@ -7,6 +7,7 @@ func _ready():
 	print("Se inicializó script")
 	load_perks()  # Carga los datos de perks desde el archivo JSON
 	if perks_data.size() > 0:  # Verifica si los datos se cargaron correctamente
+		clasificar_perks()
 		create_perk_buttons()  # Crea los botones de perks en la interfaz
 
 # Carga los datos de perks desde un archivo JSON.
