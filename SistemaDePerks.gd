@@ -1,6 +1,8 @@
 extends Control
 
 var perks_data = []  # Almacena los datos de perks cargados desde el archivo JSON
+var perks_positivas = [] #variable tipo array que almacena las perks positivas
+var perks_negativas = [] #variable tipo array que almacena las perks negativas
 
 # Se llama cuando el nodo está listo para ser usado.
 func _ready():
@@ -94,11 +96,6 @@ func clear_perks():
 		if child is VBoxContainer:
 			remove_child(child)
 			child.queue_free()  # Libera la memoria del contenedor eliminado
-			
-
-
-var perks_positivas = [] #variable tipo array que almacena las perks positivas
-var perks_negativas = [] #variable tipo array que almacena las perks negativas
 
 
 func agregar_perk(perk):
