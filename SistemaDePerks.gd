@@ -31,11 +31,11 @@ func load_perks():
 	if parse_result != OK:
 		print("Error al analizar JSON: ", json_instance.get_error_message())
 		file.close()
-		return
+		return 
 
 	# Valida y asigna los datos del JSON a perks_data
 	perks_data = validate_perks_data(json_instance.get_data())
-
+	return perks_data 
 # Verifica si los datos JSON son válidos (deben ser un array no vacío).
 func validate_perks_data(data):
 	if typeof(data) == TYPE_ARRAY and data.size() > 0:
@@ -112,6 +112,10 @@ func agregar_perk(perk):
 
 func clasificar_perks():
 	var todas_las_perks = load_perks()  
+	if todas_las_perks.size() == 0:
+		print("No hubo perks para clasificar")
+		return
+		
 	for perk in todas_las_perks:
 		agregar_perk(perk)
 
