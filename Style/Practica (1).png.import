@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd2npp77e586w"
-path="res://.godot/imported/Salir.png-793b498351af13480eb15bdddddbcc55.ctex"
+uid="uid://bwtwhj8cptm3a"
+path="res://.godot/imported/Practica (1).png-e30e3c225ff3d1cf309c30c9345df6d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Style/Salir.png"
-dest_files=["res://.godot/imported/Salir.png-793b498351af13480eb15bdddddbcc55.ctex"]
+source_file="res://Style/Practica (1).png"
+dest_files=["res://.godot/imported/Practica (1).png-e30e3c225ff3d1cf309c30c9345df6d2.ctex"]
 
 [params]
 

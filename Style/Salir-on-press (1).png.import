@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx5wcbb5t1rkf"
-path="res://.godot/imported/Salir-on-press.png-e5e34252ed886b42f4c5af2ae4f597d1.ctex"
+uid="uid://dn34kyxx4emgl"
+path="res://.godot/imported/Salir-on-press (1).png-c074fb02edb34ad46fc42b03e3a6e40d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Style/Salir-on-press.png"
-dest_files=["res://.godot/imported/Salir-on-press.png-e5e34252ed886b42f4c5af2ae4f597d1.ctex"]
+source_file="res://Style/Salir-on-press (1).png"
+dest_files=["res://.godot/imported/Salir-on-press (1).png-c074fb02edb34ad46fc42b03e3a6e40d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpv0y3kfi8i5g"
-path="res://.godot/imported/ModoPvP.png-0d5f70b4e44bcca9870ddf1713568ebd.ctex"
+uid="uid://d3ciwescx6t7w"
+path="res://.godot/imported/Salir (1).png-f54a13f054182a3e12d686b2265af043.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Style/ModoPvP.png"
-dest_files=["res://.godot/imported/ModoPvP.png-0d5f70b4e44bcca9870ddf1713568ebd.ctex"]
+source_file="res://Style/Salir (1).png"
+dest_files=["res://.godot/imported/Salir (1).png-f54a13f054182a3e12d686b2265af043.ctex"]
 
 [params]
 
