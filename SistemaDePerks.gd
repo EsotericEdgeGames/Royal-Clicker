@@ -1,12 +1,15 @@
 extends Control
 
 var perks_data = []  # Almacena los datos de perks cargados desde el archivo JSON
+var perks_positivas = [] #variable tipo array que almacena las perks positivas
+var perks_negativas = [] #variable tipo array que almacena las perks negativas
 
 # Se llama cuando el nodo está listo para ser usado.
 func _ready():
 	print("Se inicializó script")
 	load_perks()  # Carga los datos de perks desde el archivo JSON
 	if perks_data.size() > 0:  # Verifica si los datos se cargaron correctamente
+		clasificar_perks()
 		create_perk_buttons()  # Crea los botones de perks en la interfaz
 
 # Carga los datos de perks desde un archivo JSON.
@@ -30,7 +33,6 @@ func load_perks():
 	if parse_result != OK:
 		print("Error al analizar JSON: ", json_instance.get_error_message())
 		file.close()
-		return
 
 	# Valida y asigna los datos del JSON a perks_data
 	perks_data = validate_perks_data(json_instance.get_data())
@@ -94,3 +96,17 @@ func clear_perks():
 		if child is VBoxContainer:
 			remove_child(child)
 			child.queue_free()  # Libera la memoria del contenedor eliminado
+
+
+func agregar_perk(perk):
+
+	if perk.has("type"):
+		if perk["type"] in ["CPS", "CPC"]:
+			perks_positivas.append(perk)
+		elif perk["type"] in ["MCPS", "MCPC", "PM"]:
+			perks_negativas.append(perk)
+
+func clasificar_perks():
+	for perk in perks_data:
+		agregar_perk(perk)
+

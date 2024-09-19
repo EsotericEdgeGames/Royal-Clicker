@@ -67,9 +67,15 @@ text = "Royal Clicker"
 editable = false
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="play_presionado"]
+<<<<<<< HEAD
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Practice" to="." method="practice_presionado"]
 [connection signal="pressed" from="VBoxContainer/Practice" to="." method="_on_practice_pressed"]
+=======
+[connection signal="pressed" from="VBoxContainer/Practice" to="." method="_on_practice_pressed"]
+[connection signal="pressed" from="VBoxContainer/Practice" to="." method="practice_presionado"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+>>>>>>> master
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="options_presionado"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="credits_presionado"]
