@@ -33,6 +33,7 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 
 [node name="Play" type="Button" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Play"
@@ -42,14 +43,16 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.994
 anchor_bottom = 1.0
-offset_left = -9.0
-offset_top = -5.0
-offset_right = 39.13
-offset_bottom = 6.0
+offset_left = -14.0
+offset_top = -6.0
+offset_right = 34.13
+offset_bottom = 5.0
+mouse_filter = 1
 texture_normal = ExtResource("2_jhm7v")
 texture_pressed = ExtResource("3_dtxhe")
 
 [node name="Practice" type="Button" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Practice"
@@ -60,6 +63,7 @@ offset_left = -22.0
 offset_top = -4.0
 offset_right = 394.0
 offset_bottom = 57.0
+mouse_filter = 1
 texture_normal = ExtResource("4_r7am6")
 texture_pressed = ExtResource("5_pkakp")
 
@@ -74,16 +78,18 @@ theme_override_font_sizes/font_size = 25
 text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Quit"
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer/Quit"]
 layout_mode = 0
-offset_left = -18.0
-offset_top = -7.0
-offset_right = 398.0
-offset_bottom = 54.0
+offset_left = -25.0
+offset_top = -6.0
+offset_right = 391.0
+offset_bottom = 55.0
+mouse_filter = 1
 texture_normal = ExtResource("6_grwsw")
 texture_pressed = ExtResource("7_736c5")
 
