@@ -51,12 +51,6 @@ offset_bottom = 604.0
 theme_override_font_sizes/font_size = 25
 text = "Menu"
 
-[node name="total" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 870.0
-offset_right = 1153.0
-offset_bottom = 159.0
-
 [node name="Escena Principal" parent="." instance=ExtResource("2_ipi5f")]
 
 [node name="Camara3D" type="Camera3D" parent="."]
