@@ -1,20 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://g2qfavotwd1v"]
+[gd_scene load_steps=5 format=3 uid="uid://g2qfavotwd1v"]
 
 [ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_o1tpa"]
-[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
 [ext_resource type="Script" path="res://SistemaDePerks.gd" id="2_gnojb"]
-
+[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
+[ext_resource type="Script" path="res://Escenas/Control.gd" id="2_viqrx"]
 
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_o1tpa")
 
-[node name="Control" type="Control" parent="."]
+[node name="CPC_label" type="Label" parent="."]
+offset_left = 910.0
+offset_top = 19.0
+offset_right = 1152.0
+offset_bottom = 74.0
+text = "CPC: <value>"
+
+[node name="CPS_label" type="Label" parent="."]
+offset_left = 913.0
+offset_top = 61.0
+offset_right = 1168.0
+offset_bottom = 106.0
+text = "CPS: <value>"
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("CPC_label", "CPS_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_viqrx")
+CPC_label = NodePath("../CPC_label")
+CPS_label = NodePath("../CPS_label")
 
 [node name="Clicker" type="Button" parent="Control"]
 self_modulate = Color(1, 1, 1, 0)
@@ -61,12 +80,14 @@ fov = 49.0
 [node name="SistemaDePerks" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 41.0
 script = ExtResource("2_gnojb")
 
 [connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="pressed" from="Control/Clicker" to="." method="clicker_presionado"]
 [connection signal="button_down" from="Control/Clicker/Boton" to="." method="_boton_presionado"]
+[connection signal="pressed" from="Control/Clicker/Boton" to="Control" method="_on_boton_pressed"]
 [connection signal="pressed" from="Control/Menu" to="." method="menu_presionado"]
 [connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
