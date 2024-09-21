@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g2qfavotwd1v"]
+[gd_scene load_steps=4 format=3 uid="uid://g2qfavotwd1v"]
 
 [ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_o1tpa"]
-[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
 [ext_resource type="Script" path="res://SistemaDePerks.gd" id="2_gnojb"]
-
+[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
 
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_o1tpa")
