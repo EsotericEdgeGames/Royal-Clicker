@@ -8,6 +8,13 @@
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_o1tpa")
 
+[node name="ClicksTotales" type="Label" parent="."]
+offset_left = 726.0
+offset_top = 39.0
+offset_right = 899.0
+offset_bottom = 111.0
+text = "Clicks Totales: <value>"
+
 [node name="CPC_label" type="Label" parent="."]
 offset_left = 910.0
 offset_top = 19.0
@@ -22,7 +29,7 @@ offset_right = 1168.0
 offset_bottom = 106.0
 text = "CPS: <value>"
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("CPC_label", "CPS_label")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("CPC_label", "CPS_label", "total_clicks")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +41,7 @@ grow_vertical = 2
 script = ExtResource("2_viqrx")
 CPC_label = NodePath("../CPC_label")
 CPS_label = NodePath("../CPS_label")
+total_clicks = NodePath("../ClicksTotales")
 
 [node name="Clicker" type="Button" parent="Control"]
 self_modulate = Color(1, 1, 1, 0)
