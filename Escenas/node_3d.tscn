@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://clqkmewt8xm2f" path="res://new_shader_material.tres" id="3_7af2a"]
 [ext_resource type="ArrayMesh" uid="uid://gsld1f3lfic6" path="res://Boton_Mesh.res" id="3_dl0a7"]
 
+
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_o1tpa")
 
