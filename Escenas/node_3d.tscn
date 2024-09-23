@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://g2qfavotwd1v"]
+[gd_scene load_steps=6 format=3 uid="uid://g2qfavotwd1v"]
 
 [ext_resource type="Script" path="res://Scripts/node_3d.gd" id="1_o1tpa"]
-[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
 [ext_resource type="Script" path="res://SistemaDePerks.gd" id="2_gnojb"]
-
+[ext_resource type="PackedScene" uid="uid://bd4c1gal5o56" path="res://Boton.fbx" id="2_ipi5f"]
+[ext_resource type="Material" uid="uid://clqkmewt8xm2f" path="res://new_shader_material.tres" id="3_7af2a"]
+[ext_resource type="ArrayMesh" uid="uid://gsld1f3lfic6" path="res://Boton_Mesh.res" id="3_dl0a7"]
 
 [node name="Gameplay" type="Node3D"]
 script = ExtResource("1_o1tpa")
@@ -53,9 +54,11 @@ theme_override_font_sizes/font_size = 25
 text = "Menu"
 
 [node name="Escena Principal" parent="." instance=ExtResource("2_ipi5f")]
+transform = Transform3D(2.9, 0, 0, 0, 2.9, 0, 0, 0, 2.9, 0, 0, 0)
+visible = false
 
 [node name="Camara3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.055843, 0)
+transform = Transform3D(1, 0, 0, 0, 0.655677, 0.755042, 0, -0.755042, 0.655677, 0, 0.0897003, 0.127798)
 fov = 49.0
 
 [node name="SistemaDePerks" type="Control" parent="."]
@@ -64,6 +67,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_gnojb")
+
+[node name="BotonMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.1576, 0, 0, 0, 3.1576, 0, 0, 0, 3.1576, 4.60297e-05, -0.00015926, 0.000923781)
+material_override = ExtResource("3_7af2a")
+mesh = ExtResource("3_dl0a7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.902736, 0.430196, 0, -0.430196, 0.902736, 0, 1.41587, 2.93415)
+light_color = Color(0, 0, 0, 1)
+light_specular = 0.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.802068, 0.597233, 0, -0.597233, -0.802068, 0.385637, 2.42603, -2.38991)
+light_color = Color(1, 0, 0, 1)
+light_specular = 0.0
 
 [connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="pressed" from="Control/Clicker" to="." method="clicker_presionado"]
