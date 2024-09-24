@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://jaijlswktv0r"]
+[gd_scene load_steps=8 format=3 uid="uid://jaijlswktv0r"]
 
 [ext_resource type="Script" path="res://Scripts/Menù.gd" id="1_2sg0h"]
+[ext_resource type="Texture2D" uid="uid://chx32g3ese1gj" path="res://Style/ModoPvP (1).png" id="2_jhm7v"]
+[ext_resource type="Texture2D" uid="uid://dmrx6qa11l43s" path="res://Style/ModoPvP-on-press (1).png" id="3_dtxhe"]
+[ext_resource type="Texture2D" uid="uid://bwtwhj8cptm3a" path="res://Style/Practica (1).png" id="4_r7am6"]
+[ext_resource type="Texture2D" uid="uid://bo5ls5xvxfbil" path="res://Style/Practica-on-press (1).png" id="5_pkakp"]
+[ext_resource type="Texture2D" uid="uid://d3ciwescx6t7w" path="res://Style/Salir (1).png" id="6_grwsw"]
+[ext_resource type="Texture2D" uid="uid://dn34kyxx4emgl" path="res://Style/Salir-on-press (1).png" id="7_736c5"]
 
 [node name="Menù" type="Control"]
 layout_mode = 3
@@ -27,14 +33,39 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 
 [node name="Play" type="Button" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Play"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -6.0
+offset_right = 34.13
+offset_bottom = 5.0
+mouse_filter = 1
+texture_normal = ExtResource("2_jhm7v")
+texture_pressed = ExtResource("3_dtxhe")
+
 [node name="Practice" type="Button" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Practice"
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Practice"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -4.0
+offset_right = 394.0
+offset_bottom = 57.0
+mouse_filter = 1
+texture_normal = ExtResource("4_r7am6")
+texture_pressed = ExtResource("5_pkakp")
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -47,9 +78,20 @@ theme_override_font_sizes/font_size = 25
 text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Quit"
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/Quit"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -6.0
+offset_right = 391.0
+offset_bottom = 55.0
+mouse_filter = 1
+texture_normal = ExtResource("6_grwsw")
+texture_pressed = ExtResource("7_736c5")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 1
