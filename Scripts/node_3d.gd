@@ -12,6 +12,9 @@ var tiempo_actual: float = 0.0  # Tiempo acumulado para controlar el cooldown
 
 func _ready():
 	boton.pressed.connect(boton_presionado)  # Conectar el botón al evento de presionado
+	var numbers = [999, 999999, 1500000, 2500000000, 12500000, 2600000000000000, 3800000000000]
+	for clicks in numbers:
+		print(_sistema_de_redondeo_de_numeros(clicks))
 
 
 func _physics_process(delta):
@@ -61,8 +64,4 @@ func _sistema_de_redondeo_de_numeros(value: int) -> String:
 	else:
 		return str(value)
 
-func _ready():
-	var numbers = [999, 999999, 1500000, 2500000000, 12500000, 2600000000000000, 3800000000000]
-	for clicks in numbers:
-		print(_sistema_de_redondeo_de_numeros(clicks))
 
