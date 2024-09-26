@@ -4,6 +4,7 @@ var perks_data = []  # Almacena los datos de perks cargados desde el archivo JSO
 var perks_positivas = [] #variable tipo array que almacena las perks positivas
 var perks_negativas = [] #variable tipo array que almacena las perks negativas
 
+
 # Se llama cuando el nodo está listo para ser usado.
 func _ready():
 	print("Se inicializó script")
@@ -109,4 +110,5 @@ func agregar_perk(perk):
 func clasificar_perks():
 	for perk in perks_data:
 		agregar_perk(perk)
+
 
