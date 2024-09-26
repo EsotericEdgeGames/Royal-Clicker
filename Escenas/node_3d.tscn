@@ -64,8 +64,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_gnojb")
 
-[connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="pressed" from="Control/Clicker" to="." method="clicker_presionado"]
+[connection signal="pressed" from="Control/Clicker" to="." method="boton_presionado"]
 [connection signal="button_down" from="Control/Clicker/Boton" to="." method="_boton_presionado"]
-[connection signal="pressed" from="Control/Menu" to="." method="menu_presionado"]
 [connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/Menu" to="." method="menu_presionado"]
