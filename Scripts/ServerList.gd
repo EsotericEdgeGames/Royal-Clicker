@@ -5,6 +5,3 @@ func menu_presionado():
 
 func _ready():
 	$TextEdit.editable = false 
-
-func _on_menu_pressed():
-	menu_presionado()
